@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6-in-1 Utility App</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container my-4">
+    <h1 class="text-center mb-4">6-in-1 Utility App</h1>
+    <div class="d-flex flex-column align-items-center gap-3">
+      <!-- App Options -->
+      <button class="btn app-option w-100" data-bs-toggle="modal" data-bs-target="#clockModal">Clock & Alarm</button>
+      <button class="btn app-option w-100" data-bs-toggle="modal" data-bs-target="#calendarModal">Calendar</button>
+      <button class="btn app-option w-100" data-bs-toggle="modal" data-bs-target="#notesModal">Notes</button>
+      <button class="btn app-option w-100" data-bs-toggle="modal" data-bs-target="#calculatorModal">Calculator</button>
+      <button class="btn app-option w-100" data-bs-toggle="modal" data-bs-target="#todoModal">To-Do List</button>
+      <button class="btn app-option w-100" data-bs-toggle="modal" data-bs-target="#compassModal">Compass</button>
+    </div>
+  </div>
+
+  <!-- Clock Modal -->
+  <div class="modal fade" id="clockModal" tabindex="-1" aria-labelledby="clockModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="clockModalLabel">Clock & Alarm</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h2 id="current-time"></h2>
+          <label for="alarm-time">Set Alarm:</label>
+          <input type="time" id="alarm-time" class="form-control">
+          
+          <!-- Ringtone Selector -->
+          <label for="alarm-sound" class="mt-3">Select Ringtone:</label>
+          <input type="file" id="alarm-sound" class="form-control" accept="audio/*">
+          
+          <button class="btn btn-primary mt-2" id="set-alarm">Set Alarm</button>
+          <p id="alarm-status" class="mt-2"></p>
+          
+          <!-- Timer -->
+          <h3>Timer</h3>
+          <input type="number" id="timer-input" class="form-control" placeholder="Seconds">
+          <button class="btn btn-info mt-2" id="start-timer">Start Timer</button>
+          <p id="timer-status"></p>
+          
+          <!-- Stopwatch -->
+          <h3>Stopwatch</h3>
+          <button class="btn btn-warning mt-2" id="start-stopwatch">Start</button>
+          <button class="btn btn-danger mt-2" id="stop-stopwatch">Stop</button>
+          <p id="stopwatch-time">00:00</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Calendar Modal -->
+  <div class="modal fade" id="calendarModal" tabindex="-1" aria-labelledby="calendarModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="calendarModalLabel">Calendar</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="date" class="form-control" id="calendar-date">
+          <p id="selected-date" class="mt-2"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notes Modal -->
+  <div class="modal fade" id="notesModal" tabindex="-1" aria-labelledby="notesModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="notesModalLabel">Notes</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <textarea class="form-control" id="note-text" rows="3" placeholder="Write your notes here..."></textarea>
+          <button class="btn btn-success mt-2" id="save-note">Save Note</button>
+          <button class="btn btn-secondary mt-2" id="voice-to-text">Voice-to-Text</button>
+          <ul class="list-group mt-2" id="note-list"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Calculator Modal -->
+  <div class="modal fade" id="calculatorModal" tabindex="-1" aria-labelledby="calculatorModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="calculatorModalLabel">Calculator</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" id="calc-display" class="form-control mb-2" readonly>
+          <div class="d-grid gap-2">
+            <div>
+              <button class="btn btn-light calc-btn">7</button>
+              <button class="btn btn-light calc-btn">8</button>
+              <button class="btn btn-light calc-btn">9</button>
+              <button class="btn btn-danger calc-btn">/</button>
+            </div>
+            <div>
+              <button class="btn btn-light calc-btn">4</button>
+              <button class="btn btn-light calc-btn">5</button>
+              <button class="btn btn-light calc-btn">6</button>
+              <button class="btn btn-danger calc-btn">*</button>
+            </div>
+            <div>
+              <button class="btn btn-light calc-btn">1</button>
+              <button class="btn btn-light calc-btn">2</button>
+              <button class="btn btn-light calc-btn">3</button>
+              <button class="btn btn-danger calc-btn">-</button>
+            </div>
+            <div>
+              <button class="btn btn-light calc-btn">0</button>
+              <button class="btn btn-light calc-btn">.</button>
+              <button class="btn btn-success calc-btn">=</button>
+              <button class="btn btn-danger calc-btn">+</button>
+            </div>
+            <div>
+              <button class="btn btn-secondary calc-btn" id="backspace">←</button>
+              <button class="btn btn-dark calc-btn" id="clear">C</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- To-Do List Modal -->
+  <div class="modal fade" id="todoModal" tabindex="-1" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="todoModalLabel">To-Do List</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" id="todo-input" class="form-control" placeholder="Enter task">
+          <button class="btn btn-primary mt-2" id="add-todo">Add Task</button>
+          <ul class="list-group mt-2" id="todo-list"></ul>
+          <p id="greeting" class="mt-3"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Compass Modal -->
+  <div class="modal fade" id="compassModal" tabindex="-1" aria-labelledby="compassModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="compassModalLabel">Compass</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Compass.svg/1024px-Compass.svg.png" alt="Compass" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="scripts.js"></script>
+</body>
+</html>

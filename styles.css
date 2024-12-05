@@ -1,0 +1,230 @@
+/* General Reset and Layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.app-option {
+  font-size: 1.2rem;
+  background-color: #007bff;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.app-option:hover {
+  background-color: #0056b3;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.modal-header {
+  background-color: #007bff;
+  color: white;
+  padding: 15px;
+  border-radius: 10px 10px 0 0;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+}
+
+.btn-close {
+  color: white;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+/* Clock & Alarm */
+#current-time {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#alarm-status, #timer-status, #stopwatch-time {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Timer */
+input[type="number"]#timer-input {
+  text-align: center;
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+}
+
+#start-timer {
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+/* Stopwatch */
+#stopwatch-time {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Notes */
+textarea#note-text {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  resize: none;
+}
+
+#note-list {
+  margin-top: 20px;
+}
+
+#voice-to-text {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+/* Calculator */
+#calc-display {
+  font-size: 2rem;
+  text-align: right;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  border: 2px solid #ccc;
+}
+
+.calc-btn {
+  font-size: 1.5rem;
+  padding: 15px;
+  width: 70px;
+  margin: 5px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.calc-btn:hover {
+  background-color: #f1f1f1;
+}
+
+#clear, #backspace {
+  background-color: #6c757d;
+  color: white;
+}
+
+#clear:hover, #backspace:hover {
+  background-color: #5a6268;
+}
+
+#start-stopwatch, #stop-stopwatch {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+#start-stopwatch {
+  background-color: #ffc107;
+}
+
+#stop-stopwatch {
+  background-color: #dc3545;
+}
+
+/* To-Do List */
+#todo-input {
+  font-size: 1.2rem;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+}
+
+#add-todo {
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+#todo-list {
+  margin-top: 20px;
+}
+
+#greeting {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Compass */
+#compass-arrow {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+#compass-direction {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-option {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  #current-time {
+    font-size: 1.5rem;
+  }
+
+  #calc-display {
+    font-size: 1.5rem;
+  }
+
+  .calc-btn {
+    font-size: 1.2rem;
+    padding: 10px;
+    width: 50px;
+  }
+
+  #todo-input {
+    font-size: 1rem;
+  }
+
+  #todo-list {
+    font-size: 1rem;
+  }
+}
